@@ -12,8 +12,18 @@ public class TravelTest {
 		TravelCustomer customerHong = new TravelCustomer("ȫ�浿", 13, 50);
 		
 		List<TravelCustomer> customerList = new ArrayList<TravelCustomer>();
+		customerList.add(customerLee);
+		customerList.add(customerKim);
+		customerList.add(customerHong);
 		
+		System.out.println(customerList);
+		
+		customerList.stream().map(c->c.getName()).forEach(s->System.out.println(s));
+		
+		int total = customerList.stream().mapToInt(c->c.getPrice()).sum();
+		System.out.println(total);
 
+		customerList.stream().filter(c->c.getAge() >= 20).map(c->c.getName()).sorted().forEach(s->System.out.println(s));
 	}
 
 }
